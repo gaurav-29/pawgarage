@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.NotificationsFragment">
+
+    <include
+        android:id="@+id/toolbarOne"
+        layout="@layout/toolbar_1" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/categoryTL"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        app:tabTextColor="@color/grey_text"
+        app:tabBackground="@drawable/tab_color_selector"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextAppearance="@style/tab_text"
+        android:layout_marginStart="@dimen/standard_margin"
+        app:layout_constraintTop_toBottomOf="@id/toolbarOne"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabMode="scrollable"
+        android:layout_marginTop="18dp"
+        app:tabIndicator="@null"
+        app:tabMinWidth="110dp"
+        >
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/categoryVP"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/standard_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/categoryTL"/>
+
+    <View
+        android:id="@+id/toolbar_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@drawable/toolbar_dropshadow"
+        app:layout_constraintTop_toBottomOf="@id/toolbarOne" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

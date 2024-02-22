@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/standard_margin"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.VaccinationEditFragment">
+
+    <include
+        android:id="@+id/toolbarOne"
+        layout="@layout/toolbar_1" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarOne">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="70dp">
+
+            <TextView
+                android:id="@+id/vaccineIndexTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Vaccine 1"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="18dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <TextView
+                android:id="@+id/kCreatedByTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Created by"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/vaccineIndexTV"
+                android:layout_marginTop="18dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:visibility="visible"/>
+
+            <EditText
+                android:id="@+id/createdByET"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_et_disabled"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:layout_marginTop="6dp"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey_text"
+                android:inputType="text"
+                android:singleLine="true"
+                app:layout_constraintTop_toBottomOf="@id/kCreatedByTV"
+                android:enabled="false"
+                android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/kUpdatedByTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Updated by"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/createdByET"
+                android:layout_marginTop="18dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:visibility="visible"/>
+
+            <EditText
+                android:id="@+id/updatedByET"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_et_disabled"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:layout_marginTop="6dp"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey_text"
+                android:inputType="text"
+                android:singleLine="true"
+                app:layout_constraintTop_toBottomOf="@id/kUpdatedByTV"
+                android:enabled="false"
+                android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/kPreDurationTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Duration Type"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/updatedByET"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <RelativeLayout
+                android:id="@+id/previousDurationRL"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_et_main"
+                android:paddingStart="4dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                app:layout_constraintTop_toBottomOf="@id/kPreDurationTV">
+                <Spinner
+                    android:id="@+id/previousDurationSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/kVaccineDateTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/previousDurationRL"
+                android:layout_marginTop="24dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <EditText
+                android:id="@+id/vaccineDateET"
+                android:layout_width="match_parent"
+                style="@style/edittext_style"
+                android:drawableEnd="@drawable/ic_calendar"
+                android:drawableTint="@color/grey_text"
+                android:layout_marginTop="6dp"
+                android:hint="Select date"
+                android:singleLine="true"
+                app:layout_constraintTop_toBottomOf="@id/kVaccineDateTV"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
+
+            <TextView
+                android:id="@+id/typeTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Type of Vaccine"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/vaccineDateET"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <RelativeLayout
+                android:id="@+id/spinnerRL"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_et_main"
+                android:paddingStart="4dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                app:layout_constraintTop_toBottomOf="@id/typeTV">
+                <Spinner
+                    android:id="@+id/spinnerVaccine"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/personTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Person Administrating"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/spinnerRL"
+                android:layout_marginTop="24dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <RelativeLayout
+                android:id="@+id/personRL"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_et_main"
+                android:paddingStart="4dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                app:layout_constraintTop_toBottomOf="@id/personTV">
+                <Spinner
+                    android:id="@+id/spinnerUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/statusTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Status"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/personRL"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <RelativeLayout
+                android:id="@+id/spinnerStatusRL"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_et_main"
+                android:paddingStart="4dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                app:layout_constraintTop_toBottomOf="@id/statusTV">
+                <Spinner
+                    android:id="@+id/spinnerStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/warningTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="To update the status of vaccination as &quot;Completed&quot;, please schedule next vaccine."
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="12sp"
+                android:textColor="@color/red"
+                android:background="@drawable/bg_button"
+                android:padding="5dp"
+                app:layout_constraintTop_toBottomOf="@id/spinnerStatusRL"
+                android:layout_marginTop="12dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:visibility="visible"/>
+
+            <CheckBox
+                android:id="@+id/differentDateCB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Different Completion Date"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:paddingTop="4dp"
+                android:paddingHorizontal="4dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_regular"
+                app:layout_constraintTop_toBottomOf="@id/warningTV"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/kCompletionDateTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Completion Date"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/differentDateCB"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:visibility="visible"/>
+
+            <EditText
+                android:id="@+id/completionDateET"
+                android:layout_width="match_parent"
+                style="@style/edittext_style"
+                android:drawableEnd="@drawable/ic_calendar"
+                android:drawableTint="@color/grey_text"
+                android:layout_marginTop="6dp"
+                android:hint="Select date"
+                android:singleLine="true"
+                app:layout_constraintTop_toBottomOf="@id/kCompletionDateTV"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/note2TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Note from Admin"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/completionDateET"
+                android:layout_marginTop="18dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <EditText
+                android:id="@+id/note2ET"
+                android:layout_width="match_parent"
+                android:layout_height="174dp"
+                style="@style/edittext_style"
+                android:layout_marginTop="6dp"
+                android:hint="Enter note"
+                android:inputType="textMultiLine"
+                android:gravity="top"
+                android:paddingTop="12dp"
+                app:layout_constraintTop_toBottomOf="@id/note2TV"/>
+
+            <TextView
+                android:id="@+id/kNextVaccineTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Next Vaccine"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/note2ET"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/kNextDurationTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Duration Type"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/kNextVaccineTV"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:visibility="visible"/>
+
+            <RelativeLayout
+                android:id="@+id/nextDurationRL"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_et_main"
+                android:paddingStart="4dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                app:layout_constraintTop_toBottomOf="@id/kNextDurationTV"
+                android:visibility="visible">
+                <Spinner
+                    android:id="@+id/nextDurationSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/kNextVaccineDateTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Date"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/nextDurationRL"
+                android:layout_marginTop="12dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:visibility="visible"/>
+
+            <EditText
+                android:id="@+id/nextVaccineDateET"
+                android:layout_width="match_parent"
+                style="@style/edittext_style"
+                android:drawableEnd="@drawable/ic_calendar"
+                android:drawableTint="@color/grey_text"
+                android:layout_marginTop="6dp"
+                android:hint="Select date"
+                android:singleLine="true"
+                app:layout_constraintTop_toBottomOf="@id/kNextVaccineDateTV"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:visibility="visible"/>
+
+            <RelativeLayout
+                android:id="@+id/saveBTN"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:background="@color/black"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                app:layout_constraintTop_toBottomOf="@id/nextVaccineDateET"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Save"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+                <include
+                    android:id="@+id/progressBar"
+                    layout="@layout/progress_bar"
+                    android:visibility="gone"/>
+            </RelativeLayout>
+
+            <!--            <androidx.appcompat.widget.AppCompatButton-->
+            <!--                android:id="@+id/saveBTN"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:text="Save"-->
+            <!--                android:layout_marginTop="24dp"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/note2ET"-->
+            <!--                style="@style/button_style" />-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <View
+        android:id="@+id/toolbar_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@drawable/toolbar_dropshadow"
+        app:layout_constraintTop_toBottomOf="@id/toolbarOne" />
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/primary_color"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="70dp"
+        android:visibility="gone"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

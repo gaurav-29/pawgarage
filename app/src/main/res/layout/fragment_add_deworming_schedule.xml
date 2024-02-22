@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="70dp"
+    tools:context=".fragments.AddDewormingScheduleFragment">
+
+    <include
+        android:id="@+id/toolbarOne"
+        layout="@layout/toolbar_1" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarOne">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="70dp">
+
+            <TextView
+                android:id="@+id/dewormingTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Deworming 1"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="18dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <TextView
+                android:id="@+id/durationTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Duration Type"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/dewormingTV"
+                android:layout_marginTop="18dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <RelativeLayout
+                android:id="@+id/durationRL"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_et_main"
+                android:paddingStart="4dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                app:layout_constraintTop_toBottomOf="@id/durationTV">
+                <Spinner
+                    android:id="@+id/spinnerDuration"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/dateTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/durationRL"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <LinearLayout
+                android:id="@+id/dateLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/dateTV">
+
+                <EditText
+                    android:id="@+id/dateET"
+                    android:layout_width="match_parent"
+                    style="@style/edittext_style"
+                    android:drawableEnd="@drawable/ic_calendar"
+                    android:drawableTint="@color/grey_text"
+                    android:layout_marginTop="6dp"
+                    android:hint="Select date"
+                    android:singleLine="true"
+                    app:layout_constraintTop_toBottomOf="@id/dateTV"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"/>
+
+                <EditText
+                    android:id="@+id/dateET2"
+                    android:layout_width="match_parent"
+                    style="@style/edittext_style"
+                    android:drawableEnd="@drawable/ic_calendar"
+                    android:drawableTint="@color/grey_text"
+                    android:layout_marginTop="6dp"
+                    android:hint="Select date"
+                    android:singleLine="true"
+                    app:layout_constraintTop_toBottomOf="@id/dateTV"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/typeTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Type of Medicine"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/dateLL"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <RelativeLayout
+                android:id="@+id/spinnerRL"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_et_main"
+                android:paddingStart="4dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                app:layout_constraintTop_toBottomOf="@id/typeTV">
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/weightTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Weight (kg)"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/spinnerRL"
+                android:layout_marginTop="24dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <EditText
+                android:id="@+id/weightET"
+                android:layout_width="match_parent"
+                style="@style/edittext_style"
+                android:layout_marginTop="6dp"
+                android:hint="Enter weight"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                app:layout_constraintTop_toBottomOf="@id/weightTV"/>
+
+            <TextView
+                android:id="@+id/personTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Person Administrating"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/weightET"
+                android:layout_marginTop="24dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <RelativeLayout
+                android:id="@+id/personRL"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_et_main"
+                android:paddingStart="4dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                app:layout_constraintTop_toBottomOf="@id/personTV">
+                <Spinner
+                    android:id="@+id/spinnerUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/saveBTN"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:background="@color/black"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                app:layout_constraintTop_toBottomOf="@id/personRL"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Save"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+                <include
+                    android:id="@+id/progressBar"
+                    layout="@layout/progress_bar"
+                    android:visibility="gone"/>
+            </RelativeLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <View
+        android:id="@+id/toolbar_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@drawable/toolbar_dropshadow"
+        app:layout_constraintTop_toBottomOf="@id/toolbarOne" />
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/primary_color"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="70dp"
+        android:visibility="gone"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

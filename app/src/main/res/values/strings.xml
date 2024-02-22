@@ -1,0 +1,119 @@
+<resources>
+    <string name="app_name">Paw Garage</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="paw_garage_notification_channel_id">com.nextsavy.pawgarage.push.notification.channel</string>
+    <string name="is_dead">Animal is dead.</string>
+    <string name="is_terminated">Animal is terminated.</string>
+    <string name="no_reminders">No reminders.</string>
+    <string name="no_notifications">No notifications.</string>
+    <string name="no_animals">No animals found.</string>
+    <string name="no_reports">No reports found.</string>
+
+    <string name="article_text">Technology incubator T-Hub launched the semiconductor cohort of the AIC T-Hub Foundation programme to foster innovation and entrepreneurship across the semiconductor sector startups.
+        The programme will aid entrepreneurs to navigate the challenges of scaling the startup through expert-led workshops, specialised mentorship, market access, and investor and industry connections.
+        "Indian engineers have contributed massively to the semiconductor sector while working with global companies. Therefore, we must aid them in setting up and scaling their design startups with solid support from the ecosystem," AMSR, chief executive officer (CEO) of T-Hub, said in a statement.
+        Technology incubator T-Hub launched the semiconductor cohort of the AIC T-Hub Foundation programme to foster innovation and entrepreneurship across the semiconductor sector startups.
+        "Indian engineers have contributed massively to the semiconductor sector while working with global companies. Therefore, we must aid them in setting up and scaling their design startups with solid support from the ecosystem," AMSR, chief executive officer (CEO) of T-Hub, said in a statement.
+        Technology incubator T-Hub launched the semiconductor cohort of the AIC T-Hub Foundation programme to foster innovation and entrepreneurship across the semiconductor sector startups.
+</string>
+    <string name="internet_connectivity">Please connect to working internet.</string>
+    <string name="description_text">
+        This stray dog is a white, medium-sized dog with massive brown spots all over his body.
+    </string>
+
+    <string name="history_text1">
+        Rosie got adopted by Anita Patel on 15 June, 2023
+    </string>
+    <string name="history_text2">
+        Rosie got vaccinated with rabbies vaccine by Shashank Singh on 12 June, 2023
+    </string>
+    <string name="history_text3">
+        Rosie got dewormed using IPRAZ by Shashank Singh on 02 June, 2023
+    </string>
+    <string name="history_text4">
+        Rosie got vaccinated with DHPPI+RL vaccine by Shashank Singh on 28 May, 2023
+    </string>
+    <string name="history_text5">
+        Rosie got registered with Paw Garage on 25 May, 2023
+    </string>
+
+    <string name="add_schedule_text">
+        To add a new vaccine schedule,\nclick the button below
+    </string>
+    <string name="no_vaccine_schedule_text">
+        No vaccination details found\nfor this profile.
+    </string>
+    <string name="add_deworm_schedule_text">
+        To add a new deworming schedule,\nclick the button below
+    </string>
+    <string name="no_deworm_schedule_text">
+        No deworming details found\nfor this profile.
+    </string>
+    <string name="add_admission_text">
+        To add admission details,\nclick the button below
+    </string>
+    <string name="no_admission_text">
+        No admission details found\nfor this profile.
+    </string>
+    <string name="add_release_text">
+        To add status details,\nclick the button below
+    </string>
+    <string name="no_release_text">
+        No status details found\nfor this profile.
+    </string>
+    <string name="add_treatment_text">
+        To add OPD details,\nclick the button below
+    </string>
+    <string name="no_treatment_text">
+        No OPD details found\nfor this profile.
+    </string>
+
+    <string name="note_text">
+        To update the status of vaccination as &quot;Completed&quot;, please add next vaccine schedule.
+    </string>
+    <string name="note_deworming_text">
+        To update the status of deworming, please add next deworming schedule
+    </string>
+
+    <string-array name="vaccines">
+        <item>Rabies</item>
+        <item>DHPP</item>
+        <item>Leptospirosis</item>
+        <item>Lyme Disease </item>
+    </string-array>
+
+    <string-array name="duration">
+        <item>21 Days</item>
+        <item>365 Days</item>
+    </string-array>
+
+    <string-array name="dewormDuration">
+        <item>30 Days</item>
+        <item>90 Days</item>
+        <item>365 Days</item>
+    </string-array>
+
+    <string-array name="medicines">
+        <item>IPRAZ</item>
+        <item>Penicillin</item>
+        <item>Cephalexin</item>
+        <item>Enrofloxacin</item>
+    </string-array>
+
+    <string-array name="status">
+        <item>Pending</item>
+        <item>Completed</item>
+        <item>Terminated</item>
+    </string-array>
+    <string-array name="status2">
+        <item>Active</item>
+        <item>Terminated</item>
+    </string-array>
+    <string-array name="release_status">
+        <item>Adopted</item>
+        <item>Released</item>
+        <item>Death</item>
+    </string-array>
+</resources>

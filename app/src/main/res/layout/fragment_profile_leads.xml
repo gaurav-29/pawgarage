@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.ProfileLeadsFragment">
+
+    <include
+        android:id="@+id/toolbarOne"
+        layout="@layout/toolbar_1" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarOne">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/animalDetailsCL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="70dp"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/animalDetailsTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Animal Details"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="18dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+            <TextView
+                android:id="@+id/imageTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Image"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/animalDetailsTV"
+                android:layout_marginTop="12dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/selectImageCL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                app:layout_constraintTop_toBottomOf="@id/imageTV"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/animalIV"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/paw_placeholder"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/Circular" />
+
+                <ImageButton
+                    android:id="@+id/addImageBTN"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_camera"
+                    android:background="@drawable/bg_round"
+                    android:scaleType="centerCrop"
+                    android:padding="5dp"
+                    app:layout_constraintEnd_toEndOf="@id/animalIV"
+                    app:layout_constraintTop_toTopOf="@+id/animalIV" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/nameTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/selectImageCL"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <EditText
+                android:id="@+id/nameET"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_et_main"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center_vertical"
+                android:hint="Enter name"
+                android:singleLine="true"
+                android:paddingHorizontal="12dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey_text"
+                android:textSize="16sp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                app:layout_constraintTop_toBottomOf="@id/nameTV"/>
+
+            <TextView
+                android:id="@+id/locationTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/nameET"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <EditText
+                android:id="@+id/locationET"
+                android:layout_width="match_parent"
+                style="@style/edittext_style"
+                android:layout_marginTop="6dp"
+                android:hint="Click here to select location"
+                android:inputType="text"
+                android:singleLine="true"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                app:layout_constraintTop_toBottomOf="@id/locationTV"/>
+
+            <RelativeLayout
+                android:id="@+id/saveBTN"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="42dp"
+                android:background="@color/black"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                app:layout_constraintTop_toBottomOf="@id/locationET"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Save"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+                <include
+                    android:id="@+id/progressBar"
+                    layout="@layout/progress_bar"
+                    android:visibility="gone"/>
+            </RelativeLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <View
+        android:id="@+id/toolbar_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@drawable/toolbar_dropshadow"
+        app:layout_constraintTop_toBottomOf="@id/toolbarOne" />
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/primary_color"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="70dp"
+        android:visibility="gone"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

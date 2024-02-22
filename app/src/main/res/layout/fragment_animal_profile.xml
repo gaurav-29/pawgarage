@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.AnimalProfileFragment">
+
+    <include
+        android:id="@+id/toolbarOne"
+        layout="@layout/toolbar_1" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/categoryTL"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:tabTextColor="@color/grey_text"
+        app:tabSelectedTextColor="@color/black"
+        app:tabTextAppearance="@style/tab_text"
+        android:layout_marginStart="@dimen/standard_margin"
+        app:layout_constraintTop_toBottomOf="@id/toolbarOne"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabMode="scrollable"
+        app:tabIndicatorHeight="1dp"
+        app:tabIndicatorColor="@color/black" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/categoryVP"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/categoryTL"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

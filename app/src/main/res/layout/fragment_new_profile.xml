@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.NewProfileFragment">
+
+    <include
+        android:id="@+id/toolbarOne"
+        layout="@layout/toolbar_1" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarOne">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/animalDetailsCL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="70dp"
+            android:visibility="visible">
+            <TextView
+                android:id="@+id/animalDetailsTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Animal Details"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="18dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+            <TextView
+                android:id="@+id/imageTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Image"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/animalDetailsTV"
+                android:layout_marginTop="12dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/selectImageCL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                app:layout_constraintTop_toBottomOf="@id/imageTV"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/animalIV"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/paw_placeholder"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/Circular" />
+
+                <ImageButton
+                    android:id="@+id/addImageBTN"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_camera"
+                    android:background="@drawable/bg_round"
+                    android:scaleType="centerCrop"
+                    android:padding="5dp"
+                    app:layout_constraintEnd_toEndOf="@id/animalIV"
+                    app:layout_constraintTop_toTopOf="@+id/animalIV" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/typeTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Type"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/selectImageCL"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <RadioGroup
+                android:id="@+id/typeRG"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/typeTV"
+                android:layout_marginTop="6dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:orientation="horizontal"
+                android:checkedButton="@id/ipdRB">
+                <RadioButton
+                    android:id="@+id/ipdRB"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableEnd="@drawable/ic_ipd"
+                    android:layoutDirection="rtl"
+                    android:layout_marginStart="12dp"
+                    android:paddingHorizontal="12dp"
+                    android:text="IPD"
+                    android:textStyle="bold"
+                    android:textColor="@color/grey_text"
+                    android:textSize="16sp"
+                    android:drawablePadding="4dp"
+                    android:background="@drawable/bg_et_main"
+                    app:buttonTint="@color/grey_text"
+                    android:drawableTint="@color/grey_text"/>
+                <RadioButton
+                    android:id="@+id/opdRB"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="OPD"
+                    android:drawableEnd="@drawable/ic_opd"
+                    android:drawableTint="@color/grey_text"
+                    android:layoutDirection="rtl"
+                    android:layout_weight="1"
+                    android:paddingHorizontal="12dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/grey_text"
+                    android:textSize="16sp"
+                    android:drawablePadding="4dp"
+                    android:background="@drawable/bg_et_main"
+                    app:buttonTint="@color/grey_text" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/nameTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/typeRG"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <!--android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "-->
+            <EditText
+                android:id="@+id/nameET"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_et_main"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center_vertical"
+                android:hint="Enter name"
+                android:singleLine="true"
+                android:paddingHorizontal="12dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey_text"
+                android:textSize="16sp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                app:layout_constraintTop_toBottomOf="@id/nameTV"/>
+
+            <TextView
+                android:id="@+id/locationTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/nameET"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <EditText
+                android:id="@+id/locationET"
+                android:layout_width="match_parent"
+                style="@style/edittext_style"
+                android:layout_marginTop="6dp"
+                android:hint="Click here to select location"
+                android:inputType="text"
+                android:singleLine="true"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                app:layout_constraintTop_toBottomOf="@id/locationTV"/>
+
+            <TextView
+                android:id="@+id/descriptionTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/locationET"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <EditText
+                android:id="@+id/descriptionET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="3"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_et_main"
+                android:gravity="top"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="Enter description"
+                android:inputType="textMultiLine"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="12dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey_text"
+                android:textSize="16sp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                app:layout_constraintTop_toBottomOf="@id/descriptionTV" />
+
+            <TextView
+                android:id="@+id/genderTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gender"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/descriptionET"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <RadioGroup
+                android:id="@+id/genderRG"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/genderTV"
+                android:layout_marginTop="6dp"
+                android:checkedButton="@id/maleRB"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/maleRB"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableEnd="@drawable/ic_male"
+                    android:layoutDirection="rtl"
+                    android:layout_marginStart="12dp"
+                    android:paddingHorizontal="12dp"
+                    android:text="Male"
+                    android:textStyle="bold"
+                    android:textColor="@color/grey_text"
+                    android:textSize="16sp"
+                    android:drawablePadding="4dp"
+                    android:background="@drawable/bg_et_main"
+                    app:buttonTint="@color/grey_text"
+                    android:drawableTint="@color/grey_text"/>
+                <RadioButton
+                    android:id="@+id/femaleRB"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Female"
+                    android:drawableEnd="@drawable/ic_female"
+                    android:drawableTint="@color/grey_text"
+                    android:layoutDirection="rtl"
+                    android:layout_weight="1"
+                    android:paddingHorizontal="12dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/grey_text"
+                    android:textSize="16sp"
+                    android:drawablePadding="4dp"
+                    android:background="@drawable/bg_et_main"
+                    app:buttonTint="@color/grey_text" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/speciesTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Species"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/genderRG"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <RadioGroup
+                android:id="@+id/speciesRG"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/speciesTV"
+                android:layout_marginTop="6dp"
+                android:checkedButton="@id/dogRB"
+                android:layout_marginHorizontal="@dimen/standard_margin">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/dogRB"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableEnd="@drawable/ic_dog"
+                        android:layoutDirection="rtl"
+                        android:layout_marginStart="12dp"
+                        android:paddingHorizontal="12dp"
+                        android:text="Dog"
+                        android:textStyle="bold"
+                        android:textColor="@color/grey_text"
+                        android:textSize="16sp"
+                        android:drawablePadding="4dp"
+                        android:background="@drawable/bg_et_main"
+                        app:buttonTint="@color/grey_text"
+                        android:drawableTint="@color/grey_text"/>
+                    <RadioButton
+                        android:id="@+id/catRB"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Cat"
+                        android:drawableEnd="@drawable/ic_cat"
+                        android:drawableTint="@color/grey_text"
+                        android:layoutDirection="rtl"
+                        android:layout_weight="1"
+                        android:paddingHorizontal="12dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/grey_text"
+                        android:textSize="16sp"
+                        android:drawablePadding="4dp"
+                        android:background="@drawable/bg_et_main"
+                        app:buttonTint="@color/grey_text" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp">
+                    <RadioButton
+                        android:id="@+id/otherRB"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableEnd="@drawable/ic_other"
+                        android:layoutDirection="rtl"
+                        android:layout_marginStart="12dp"
+                        android:paddingHorizontal="12dp"
+                        android:text="Other"
+                        android:textStyle="bold"
+                        android:textColor="@color/grey_text"
+                        android:textSize="16sp"
+                        android:drawablePadding="4dp"
+                        android:background="@drawable/bg_et_main"
+                        app:buttonTint="@color/grey_text"
+                        android:drawableTint="@color/grey_text"/>
+                    <RadioButton
+                        android:id="@+id/extraRB"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/white"/>
+                </LinearLayout>
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/stateTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="State"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/speciesRG"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <RelativeLayout
+                android:id="@+id/spinnerRL"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_et_main"
+                android:paddingStart="4dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                app:layout_constraintTop_toBottomOf="@id/stateTV">
+                <Spinner
+                    android:id="@+id/spinnerStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/nextBTN"
+                android:layout_width="match_parent"
+                android:text="Next"
+                android:layout_marginTop="42dp"
+                app:layout_constraintTop_toBottomOf="@id/spinnerRL"
+                style="@style/button_style" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <View
+        android:id="@+id/toolbar_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@drawable/toolbar_dropshadow"
+        app:layout_constraintTop_toBottomOf="@id/toolbarOne" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

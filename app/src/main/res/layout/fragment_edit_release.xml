@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="70dp"
+    tools:context=".fragments.EditReleaseFragment">
+
+    <include
+        android:id="@+id/toolbarOne"
+        layout="@layout/toolbar_1" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarOne">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="70dp">
+
+            <TextView
+                android:id="@+id/releaseTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="18dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <TextView
+                android:id="@+id/createdTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Created by"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/releaseTV"
+                android:layout_marginTop="18dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <EditText
+                android:id="@+id/createdET"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_et_disabled"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:layout_marginTop="6dp"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey_text"
+                android:inputType="text"
+                android:singleLine="true"
+                app:layout_constraintTop_toBottomOf="@id/createdTV"
+                android:enabled="false" />
+
+            <TextView
+                android:id="@+id/updateTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Updated by"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/createdET"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <EditText
+                android:id="@+id/updateET"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_et_disabled"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:layout_marginTop="6dp"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey_text"
+                android:inputType="text"
+                android:singleLine="true"
+                app:layout_constraintTop_toBottomOf="@id/updateTV"
+                android:enabled="false"/>
+
+            <TextView
+                android:id="@+id/dateTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/updateET"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginHorizontal="@dimen/standard_margin" />
+
+            <EditText
+                android:id="@+id/dateET"
+                android:layout_width="match_parent"
+                style="@style/edittext_style"
+                android:drawableEnd="@drawable/ic_calendar"
+                android:drawableTint="@color/grey_text"
+                android:layout_marginTop="6dp"
+                android:hint="Select date"
+                android:singleLine="true"
+                app:layout_constraintTop_toBottomOf="@id/dateTV"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false" />
+
+            <TextView
+                android:id="@+id/statusTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Status"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/dateET"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginHorizontal="@dimen/standard_margin"/>
+
+            <RelativeLayout
+                android:id="@+id/spinnerStatusRL"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_et_main"
+                android:paddingStart="4dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                app:layout_constraintTop_toBottomOf="@id/statusTV">
+                <Spinner
+                    android:id="@+id/spinnerStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/personTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name of Adopter"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/spinnerStatusRL"
+                android:layout_marginTop="24dp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:visibility="gone"/>
+
+            <EditText
+                android:id="@+id/personET"
+                android:layout_width="match_parent"
+                style="@style/edittext_style"
+                android:layout_marginTop="6dp"
+                android:hint="Enter name"
+                android:inputType="text"
+                android:singleLine="true"
+                android:focusable="false"
+                app:layout_constraintTop_toBottomOf="@id/personTV"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:id="@+id/numberTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Contact Number"
+                android:textColor="@color/grey_text"
+                android:textSize="14sp"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                app:layout_constraintTop_toBottomOf="@id/personET"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:id="@+id/numberLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                app:layout_constraintTop_toBottomOf="@id/numberTV"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/countryCodeET"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_et"
+                    android:enabled="false"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center"
+                    android:text="+91"
+                    android:textColor="@color/grey_text"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/numberET"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="-1dp"
+                    android:background="@drawable/bg_et2"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center_vertical"
+                    android:hint="Enter number"
+                    android:inputType="phone"
+                    android:paddingHorizontal="12dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/grey_text"
+                    android:textSize="16sp"
+                    android:enabled="false"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/locationTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/numberLL"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:visibility="gone"/>
+
+            <EditText
+                android:id="@+id/locationET"
+                android:layout_width="match_parent"
+                style="@style/edittext_style"
+                android:layout_marginTop="6dp"
+                android:hint="Click here to select location"
+                android:text=""
+                android:inputType="text"
+                android:singleLine="true"
+                android:cursorVisible="false"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                app:layout_constraintTop_toBottomOf="@id/locationTV"
+                android:visibility="gone" />
+<!--            android:cursorVisible="false"-->
+<!--            android:clickable="false"-->
+<!--            android:focusable="false"-->
+<!--            android:focusableInTouchMode="false"-->
+
+            <TextView
+                android:id="@+id/note2TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Note from Admin"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/grey_text"
+                app:layout_constraintTop_toBottomOf="@id/locationET"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:visibility="gone"/>
+
+            <EditText
+                android:id="@+id/note2ET"
+                android:layout_width="match_parent"
+                android:layout_height="174dp"
+                style="@style/edittext_style"
+                android:layout_marginTop="6dp"
+                android:hint="Enter note"
+                android:inputType="textMultiLine"
+                android:gravity="top"
+                android:paddingTop="12dp"
+                app:layout_constraintTop_toBottomOf="@id/note2TV"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/saveBTN"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:background="@color/black"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                app:layout_constraintTop_toBottomOf="@id/note2ET"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Save"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+                <include
+                    android:id="@+id/progressBar"
+                    layout="@layout/progress_bar"
+                    android:visibility="gone"/>
+            </RelativeLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <View
+        android:id="@+id/toolbar_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@drawable/toolbar_dropshadow"
+        app:layout_constraintTop_toBottomOf="@id/toolbarOne" />
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/primary_color"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="70dp"
+        android:visibility="gone"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

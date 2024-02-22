@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/homeFragment"
+        android:title=""
+        android:icon="@drawable/ic_home2" />
+    <item android:id="@+id/remindersFragment"
+        android:title=""
+        android:icon="@drawable/ic_reminder" />
+    <item android:id="@+id/f3"
+        android:title="" />
+    <item android:id="@+id/animal_graph"
+        android:title=""
+        android:icon="@drawable/ic_paw"/>
+    <item android:id="@+id/settingsFragment"
+        android:title=""
+        android:icon="@drawable/ic_settings"/>
+</menu>

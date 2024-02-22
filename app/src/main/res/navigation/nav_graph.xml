@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <action android:id="@+id/action_global_sign_out"
+        app:destination="@id/login_graph"
+        app:popUpTo="@id/nav_graph"
+        app:popUpToInclusive="true"/>
+
+    <action
+        android:id="@+id/action_global_sign_in"
+        app:destination="@id/homeFragment"
+        app:popUpTo="@id/nav_graph"
+        app:popUpToInclusive="true" />
+
+    <!--Pop all screen except Home screen-->
+    <action
+        android:id="@+id/action_global_new_animal_profile"
+        app:destination="@id/profileLeadsFragment"
+        app:popUpTo="@id/homeFragment"
+        app:popUpToInclusive="false" />
+
+    <!--Move to Animal Profile and Pop all screen except Home screen-->
+    <action
+        android:id="@+id/action_global_animal_profile"
+        app:destination="@id/animalProfileFragment"
+        app:popUpTo="@id/homeFragment"
+        app:popUpToInclusive="false" />
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.nextsavy.pawgarage.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_newProfileFragment"
+            app:destination="@id/newProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/remindersFragment"
+        android:name="com.nextsavy.pawgarage.fragments.RemindersFragment"
+        android:label="fragment_reminders"
+        tools:layout="@layout/fragment_reminders" >
+        <action
+            android:id="@+id/action_remindersFragment_to_newProfileFragment"
+            app:destination="@id/newProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newProfileFragment"
+        android:name="com.nextsavy.pawgarage.fragments.NewProfileFragment"
+        android:label="fragment_new_profile"
+        tools:layout="@layout/fragment_new_profile" >
+        <action
+            android:id="@+id/action_newProfileFragment_to_addAdmissionFragment"
+            app:destination="@id/addAdmissionFragment" />
+        <action
+            android:id="@+id/action_newProfileFragment_to_addTreatmentFragment"
+            app:destination="@id/addTreatmentFragment" />
+        <argument
+            android:name="profileLead"
+            app:argType="com.nextsavy.pawgarage.models.ProfileLeadDTO"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.nextsavy.pawgarage.fragments.NotificationsFragment"
+        android:label="fragment_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/addAdmissionFragment"
+        android:name="com.nextsavy.pawgarage.fragments.AddAdmissionFragment"
+        android:label="fragment_new_profile2"
+        tools:layout="@layout/fragment_add_admission" >
+        <action
+            android:id="@+id/action_addAdmissionFragment_to_medicalConditionsFragment"
+            app:destination="@id/medicalConditionsFragment" />
+        <argument
+            android:name="from"
+            app:argType="string"
+            android:defaultValue='""' />
+        <argument
+            android:name="animalName"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="animalId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="reminderDocId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="lastReleaseDate"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/medicalConditionsFragment"
+        android:name="com.nextsavy.pawgarage.fragments.MedicalConditionsFragment"
+        android:label="fragment_medical_conditions"
+        tools:layout="@layout/fragment_medical_conditions" >
+        <action
+            android:id="@+id/action_medicalConditionsFragment_to_addAdmissionFragment"
+            app:destination="@id/addAdmissionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/animalProfileFragment"
+        android:name="com.nextsavy.pawgarage.fragments.AnimalProfileFragment"
+        android:label="fragment_animal_profile"
+        tools:layout="@layout/fragment_animal_profile" >
+        <action
+            android:id="@+id/action_animalProfileFragment_to_addVaccinationScheduleFragment"
+            app:destination="@id/addVaccinationScheduleFragment" />
+        <action
+            android:id="@+id/action_animalProfileFragment_to_vaccinationEditFragment"
+            app:destination="@id/vaccinationEditFragment" />
+        <action
+            android:id="@+id/action_animalProfileFragment_to_addDewormingScheduleFragment"
+            app:destination="@id/addDewormingScheduleFragment" />
+        <action
+            android:id="@+id/action_animalProfileFragment_to_addReleaseDetailsFragment"
+            app:destination="@id/addReleaseDetailsFragment" />
+        <action
+            android:id="@+id/action_animalProfileFragment_to_editReleaseFragment"
+            app:destination="@id/editReleaseFragment" />
+        <action
+            android:id="@+id/action_animalProfileFragment_to_addAdmissionFragment"
+            app:destination="@id/addAdmissionFragment" />
+        <action
+            android:id="@+id/action_animalProfileFragment_to_editAdmissionFragment"
+            app:destination="@id/editAdmissionFragment" />
+        <action
+            android:id="@+id/action_animalProfileFragment_to_addTreatmentFragment"
+            app:destination="@id/addTreatmentFragment" />
+        <action
+            android:id="@+id/action_animalProfileFragment_to_editTreatmentFragment"
+            app:destination="@id/editTreatmentFragment" />
+        <argument
+            android:name="animalId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue='"-1"' />
+        <argument
+            android:name="actionType"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue='null' />
+        <action
+            android:id="@+id/action_animalProfileFragment_to_dewormingEditFragment"
+            app:destination="@id/dewormingEditFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addVaccinationScheduleFragment"
+        android:name="com.nextsavy.pawgarage.fragments.AddVaccineScheduleFragment"
+        android:label="fragment_add_vaccination_schedule"
+        tools:layout="@layout/fragment_add_vaccination_schedule" >
+        <argument
+            android:name="vaccineNumber"
+            app:argType="integer" />
+        <argument
+            android:name="animalDocID"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="animalName"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/vaccinationListFragment"
+        android:name="com.nextsavy.pawgarage.fragments.VaccinationListFragment"
+        android:label="fragment_vaccination_list"
+        tools:layout="@layout/fragment_vaccination_list" >
+        <action
+            android:id="@+id/action_vaccinationListFragment_to_addVaccinationScheduleFragment"
+            app:destination="@id/addVaccinationScheduleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addDewormingScheduleFragment"
+        android:name="com.nextsavy.pawgarage.fragments.AddDewormingScheduleFragment"
+        android:label="fragment_add_deworming_schedule"
+        tools:layout="@layout/fragment_add_deworming_schedule" >
+        <argument
+            android:name="dewormNumber"
+            app:argType="integer" />
+        <argument
+            android:name="animalDocID"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="animalName"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/dewormingListFragment"
+        android:name="com.nextsavy.pawgarage.fragments.DewormingListFragment"
+        android:label="fragment_deworming_list"
+        tools:layout="@layout/fragment_deworming_list" >
+        <action
+            android:id="@+id/action_dewormingListFragment_to_addDewormingScheduleFragment"
+            app:destination="@id/addDewormingScheduleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addReleaseDetailsFragment"
+        android:name="com.nextsavy.pawgarage.fragments.AddReleaseDetailsFragment"
+        android:label="fragment_add_release_details"
+        tools:layout="@layout/fragment_add_release_details" >
+        <argument
+            android:name="releaseNumber"
+            app:argType="integer" />
+        <argument
+            android:name="animalDocId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="LastAdmissionDate"
+            app:argType="string"
+            android:defaultValue='""' />
+        <argument
+            android:name="animalName"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/releaseDetailsListFragment"
+        android:name="com.nextsavy.pawgarage.fragments.ReleaseDetailsListFragment"
+        android:label="fragment_release_details_list"
+        tools:layout="@layout/fragment_release_details_list" />
+    <fragment
+        android:id="@+id/editReleaseFragment"
+        android:name="com.nextsavy.pawgarage.fragments.EditReleaseFragment"
+        android:label="fragment_edit_release"
+        tools:layout="@layout/fragment_edit_release" >
+        <argument
+            android:name="releaseId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="animalDocId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="totalReleaseCount"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="currentReleaseIndex"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="animalName"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_editReleaseFragment_to_addReleaseDetailsFragment"
+            app:destination="@id/addReleaseDetailsFragment" />
+        <argument
+            android:name="lastAdmissionDate"
+            app:argType="string"
+            android:defaultValue='""' />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.nextsavy.pawgarage.fragments.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_login_graph"
+            app:destination="@id/login_graph"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="com.nextsavy.pawgarage.fragments.LocationFragment"
+        android:label="fragment_location"
+        tools:layout="@layout/fragment_location">
+        <argument
+            android:name="latitude"
+            app:argType="float"
+            android:defaultValue="0" />
+        <argument
+            android:name="longitude"
+            app:argType="float"
+            android:defaultValue="0" />
+    </fragment>
+
+    <action android:id="@+id/action_global_locationFragment"
+        app:destination="@id/locationFragment" />
+    <fragment
+        android:id="@+id/treatmentListFragment"
+        android:name="com.nextsavy.pawgarage.fragments.TreatmentListFragment"
+        android:label="fragment_treatment_list"
+        tools:layout="@layout/fragment_treatment_list" />
+    <fragment
+        android:id="@+id/admissionListFragment"
+        android:name="com.nextsavy.pawgarage.fragments.AdmissionListFragment"
+        android:label="fragment_admission_list"
+        tools:layout="@layout/fragment_admission_list" >
+        <action
+            android:id="@+id/action_admissionListFragment_to_addAdmissionFragment"
+            app:destination="@id/addAdmissionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editAdmissionFragment"
+        android:name="com.nextsavy.pawgarage.fragments.EditAdmissionFragment"
+        android:label="fragment_edit_admission"
+        tools:layout="@layout/fragment_edit_admission" >
+        <argument
+            android:name="admissionId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="animalDocId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="totalAdmissionCount"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="currentAdmissionIndex"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="animalName"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="lastReleaseDate"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTreatmentFragment"
+        android:name="com.nextsavy.pawgarage.fragments.AddTreatmentFragment"
+        android:label="fragment_add_treatment"
+        tools:layout="@layout/fragment_add_treatment" >
+        <argument
+            android:name="from"
+            app:argType="string"
+            android:defaultValue='""' />
+        <argument
+            android:name="animalDocId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="reminderDocId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="animalName"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/editTreatmentFragment"
+        android:name="com.nextsavy.pawgarage.fragments.EditTreatmentFragment"
+        android:label="fragment_edit_treatment"
+        tools:layout="@layout/fragment_edit_treatment" >
+        <argument
+            android:name="treatmentId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="animalDocId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="totalAdmissionCount"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="currentAdmissionIndex"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="animalName"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.nextsavy.pawgarage.fragments.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.nextsavy.pawgarage.fragments.UserProfileFragment"
+        android:label="fragment_user_profile"
+        tools:layout="@layout/fragment_user_profile" >
+        <action
+            android:id="@+id/action_userProfileFragment_to_editUserProfileFragment"
+            app:destination="@id/editUserProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editUserProfileFragment"
+        android:name="com.nextsavy.pawgarage.fragments.EditUserProfileFragment"
+        android:label="fragment_edit_user_profile"
+        tools:layout="@layout/fragment_edit_user_profile" />
+    <fragment
+        android:id="@+id/teamMemberListFragment"
+        android:name="com.nextsavy.pawgarage.fragments.TeamMemberListFragment"
+        android:label="fragment_team_member_list"
+        tools:layout="@layout/fragment_team_member_list" />
+    <fragment
+        android:id="@+id/teamLeadersListFragment"
+        android:name="com.nextsavy.pawgarage.fragments.TeamLeadersListFragment"
+        android:label="fragment_team_leaders_list"
+        tools:layout="@layout/fragment_team_leaders_list" />
+    <fragment
+        android:id="@+id/teamMemberDetails"
+        android:name="com.nextsavy.pawgarage.fragments.TeamMemberDetails"
+        android:label="fragment_team_member_details"
+        tools:layout="@layout/fragment_team_member_details">
+        <argument
+            android:name="userDocId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamLeaderDetails"
+        android:name="com.nextsavy.pawgarage.fragments.TeamLeaderDetails"
+        android:label="fragment_team_leader_details"
+        tools:layout="@layout/fragment_team_leader_details">
+        <argument
+            android:name="userDocId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminGenericMedicineList"
+        android:name="com.nextsavy.pawgarage.fragments.AdminGenericMedicineList"
+        android:label="fragment_admin_generic_medicin_list"
+        tools:layout="@layout/fragment_admin_generic_medicin_list">
+        <argument
+            android:name="genericMedicineType"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminGenericMedicineDetails"
+        android:name="com.nextsavy.pawgarage.fragments.AdminGenericMedicineDetails"
+        android:label="fragment_admin_generic_medicine_details"
+        tools:layout="@layout/fragment_admin_generic_medicine_details">
+        <argument
+            android:name="genericMedicineType"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/editAnimalProfileFragment"
+        android:name="com.nextsavy.pawgarage.fragments.EditAnimalProfileFragment"
+        android:label="fragment_edit_animal_profile"
+        tools:layout="@layout/fragment_edit_animal_profile" />
+
+    <navigation android:id="@+id/animal_graph"
+        app:startDestination="@id/animalsFragment">
+
+        <fragment
+            android:id="@+id/animalsFragment"
+            android:name="com.nextsavy.pawgarage.fragments.AnimalsFragment"
+            android:label="fragment_animals"
+            tools:layout="@layout/fragment_animals" />
+
+        <fragment
+            android:id="@+id/IPDAnimalsFragment"
+            android:name="com.nextsavy.pawgarage.fragments.IPDAnimalsFragment"
+            android:label="fragment_i_p_d_animals"
+            tools:layout="@layout/fragment_i_p_d_animals" />
+
+        <fragment
+            android:id="@+id/allAnimalsFragment"
+            android:name="com.nextsavy.pawgarage.fragments.AllAnimalsFragment"
+            android:label="fragment_all_animals"
+            tools:layout="@layout/fragment_all_animals" />
+
+        <fragment
+            android:id="@+id/OPDAnimalsFragment"
+            android:name="com.nextsavy.pawgarage.fragments.OPDAnimalsFragment"
+            android:label="fragment_o_p_d_animals"
+            tools:layout="@layout/fragment_o_p_d_animals" />
+
+    </navigation>
+    <fragment
+        android:id="@+id/profileLeadsFragment"
+        android:name="com.nextsavy.pawgarage.fragments.ProfileLeadsFragment"
+        android:label="fragment_profile_leads"
+        tools:layout="@layout/fragment_profile_leads" />
+    <fragment
+        android:id="@+id/reportingPersonsListFragment"
+        android:name="com.nextsavy.pawgarage.fragments.ReportingPersonsListFragment"
+        android:label="fragment_reporting_persons_list"
+        tools:layout="@layout/fragment_reporting_persons_list" >
+        <argument
+            android:name="From"
+            app:argType="string"
+            android:defaultValue='""' />
+    </fragment>
+    <fragment
+        android:id="@+id/reportingPersonDetailsFragment"
+        android:name="com.nextsavy.pawgarage.fragments.ReportingPersonDetailsFragment"
+        android:label="fragment_reporting_person_details"
+        tools:layout="@layout/fragment_reporting_person_details" >
+        <argument
+            android:name="userDocId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.nextsavy.pawgarage.fragments.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" >
+        <argument
+            android:name="Latlong"
+            app:argType="string"
+            android:defaultValue='""' />
+    </fragment>
+    <fragment
+        android:id="@+id/vaccinationEditFragment"
+        android:name="com.nextsavy.pawgarage.fragments.VaccinationEditFragment"
+        android:label="fragment_vaccination_edit"
+        tools:layout="@layout/fragment_vaccination_edit" >
+        <argument
+            android:name="vaccinationId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="totalVaccinationCount"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="currentVaccinationIndex"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="previousVaccinationDate"
+            app:argType="long"
+            android:defaultValue="0L" />
+        <argument
+            android:name="animalName"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/reportsFragment"
+        android:name="com.nextsavy.pawgarage.fragments.ReportsFragment"
+        android:label="fragment_reports"
+        tools:layout="@layout/fragment_reports" />
+    <fragment
+        android:id="@+id/vaccinationReportFragment"
+        android:name="com.nextsavy.pawgarage.fragments.VaccinationReportFragment"
+        android:label="fragment_vaccination_report"
+        tools:layout="@layout/fragment_vaccination_report" />
+    <fragment
+        android:id="@+id/generatedVaccinationReportFragment"
+        android:name="com.nextsavy.pawgarage.fragments.GeneratedVaccinationReportFragment"
+        android:label="fragment_generated_vaccination_report"
+        tools:layout="@layout/fragment_generated_vaccination_report" />
+    <fragment
+        android:id="@+id/dewormingReportFragment"
+        android:name="com.nextsavy.pawgarage.fragments.DewormingReportFragment"
+        android:label="fragment_deworming_report"
+        tools:layout="@layout/fragment_deworming_report" />
+    <fragment
+        android:id="@+id/generatedDewormingReportFragment"
+        android:name="com.nextsavy.pawgarage.fragments.GeneratedDewormingReportFragment"
+        android:label="fragment_generated_deworming_report"
+        tools:layout="@layout/fragment_generated_deworming_report" />
+    <fragment
+        android:id="@+id/admissionReportFragment"
+        android:name="com.nextsavy.pawgarage.fragments.AdmissionReportFragment"
+        android:label="fragment_admission_report"
+        tools:layout="@layout/fragment_admission_report" />
+    <fragment
+        android:id="@+id/generatedAdmissionReportFragment"
+        android:name="com.nextsavy.pawgarage.fragments.GeneratedAdmissionReportFragment"
+        android:label="fragment_generated_admission_report"
+        tools:layout="@layout/fragment_generated_admission_report" />
+    <fragment
+        android:id="@+id/releaseReportFragment"
+        android:name="com.nextsavy.pawgarage.fragments.ReleaseReportFragment"
+        android:label="fragment_release_report"
+        tools:layout="@layout/fragment_release_report" />
+    <fragment
+        android:id="@+id/generatedReleaseReportFragment"
+        android:name="com.nextsavy.pawgarage.fragments.GeneratedReleaseReportFragment"
+        android:label="fragment_generated_release_report"
+        tools:layout="@layout/fragment_generated_release_report" />
+    <fragment
+        android:id="@+id/medicalConditionReportFragment"
+        android:name="com.nextsavy.pawgarage.fragments.MedicalConditionReportFragment"
+        android:label="fragment_medical_condition_report"
+        tools:layout="@layout/fragment_medical_condition_report" />
+    <fragment
+        android:id="@+id/generatedMedicalConditionReportFragment"
+        android:name="com.nextsavy.pawgarage.fragments.GeneratedMedicalConditionReportFragment"
+        android:label="fragment_generated_medical_condition_report"
+        tools:layout="@layout/fragment_generated_medical_condition_report" />
+    <navigation
+        android:id="@+id/login_graph"
+        app:startDestination="@id/loginFragment">
+        <fragment
+            android:id="@+id/loginFragment"
+            android:name="com.nextsavy.pawgarage.fragments.LoginFragment"
+            android:label="fragment_login"
+            tools:layout="@layout/fragment_login" />
+        <fragment
+            android:id="@+id/verifyOtpFragment"
+            android:name="com.nextsavy.pawgarage.fragments.VerifyOtpFragment"
+            android:label="fragment_verify_otp"
+            tools:layout="@layout/fragment_verify_otp" />
+    </navigation>
+    <fragment
+        android:id="@+id/dewormingEditFragment"
+        android:name="com.nextsavy.pawgarage.fragments.DewormingEditFragment"
+        android:label="fragment_deworming_edit"
+        tools:layout="@layout/fragment_deworming_edit" >
+        <argument
+            android:name="dewormingId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="totalDewormingCount"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="currentDewormingIndex"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="animalName"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/medicalConditionListFragment"
+        android:name="com.nextsavy.pawgarage.fragments.MedicalConditionListFragment"
+        android:label="fragment_medical_condition_list"
+        tools:layout="@layout/fragment_medical_condition_list" />
+    <fragment
+        android:id="@+id/adopterListFragment"
+        android:name="com.nextsavy.pawgarage.fragments.AdopterListFragment"
+        android:label="fragment_adopter_list"
+        tools:layout="@layout/fragment_adopter_list">
+        <argument
+            android:name="allowPicking"
+            app:argType="boolean"
+            android:defaultValue="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/adopterDetailsFragment"
+        android:name="com.nextsavy.pawgarage.fragments.AdopterDetailsFragment"
+        android:label="fragment_adopter_details"
+        tools:layout="@layout/fragment_adopter_details">
+        <argument
+            android:name="adopterId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/activeCasesListFragment"
+        android:name="com.nextsavy.pawgarage.fragments.ActiveCasesListFragment"
+        android:label="fragment_active_cases_list"
+        tools:layout="@layout/fragment_active_cases_list" >
+        <argument
+            android:name="active_cases_list"
+            app:argType="string[]" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/photoViewDialog"
+        android:name="com.nextsavy.pawgarage.fragments.PhotoViewDialog"
+        android:label="PhotoViewDialog" />
+
+</navigation>

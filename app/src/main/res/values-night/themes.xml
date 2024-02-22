@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+<!--    <style name="Base.Theme.PawGarage" parent="Theme.Material3.DayNight.NoActionBar">-->
+    <style name="Base.Theme.PawGarage" parent="Theme.MaterialComponents.Light.NoActionBar">  <!-- Parent theme changed and below items are added to disable dark mode. -->
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorAccent">#000000</item>   <!-- Cursor color can be changed by colorAccent color  -->
+
+        <!-- To make status bar color white and items black. -->
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.AnimalsFragment">
+
+    <include
+        android:id="@+id/toolbarMain"
+        layout="@layout/toolbar_main" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/categoryTL"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        app:tabTextColor="@color/grey_text"
+        app:tabBackground="@drawable/tab_color_selector"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextAppearance="@style/tab_text"
+        android:layout_marginHorizontal="@dimen/standard_margin"
+        app:layout_constraintTop_toBottomOf="@id/toolbarMain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabMode="fixed"
+        android:layout_marginTop="14dp"
+        app:tabIndicator="@null"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/searchCL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        app:layout_constraintTop_toBottomOf="@id/categoryTL">
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:theme="@style/searchView_style"
+            android:queryHint="Search name"
+            android:paddingTop="4dp"
+            android:iconifiedByDefault="false"
+            android:background="@drawable/bg_et_main"
+            android:queryBackground="@null"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/standard_margin"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cancelSearchButton"
+            android:layout_marginEnd="@dimen/standard_margin"
+            />
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/cancelSearchButton"
+            style="?android:borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constrainedHeight="true"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textColor="@android:color/darker_gray"
+            app:layout_goneMarginEnd="@dimen/standard_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/categoryVP"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/standard_margin"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchCL" />
+
+    <View
+        android:id="@+id/toolbar_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@drawable/toolbar_dropshadow"
+        app:layout_constraintTop_toBottomOf="@id/toolbarMain"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
